@@ -1,0 +1,46 @@
+h1{
+    color: #8C5F66;
+    text-align: center;
+}
+h2{
+    color:whitesmoke;
+}
+.container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.content{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+.player,
+.computer{
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+}
+.player{
+    background-color: #ADBCA5;
+}
+.computer{
+    background-color: #E8B9AB;
+}
+.images{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+.icon,
+.icon-btn{
+    width: 90%;
+    height: 90%;
+}
+button{
+    margin: 2px;
+    height: 20em;
+    width: 30%;
+}
