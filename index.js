@@ -70,7 +70,7 @@ pickBtn.forEach(function (buttonPicked) {
             if ((imgeAtrribute.includes('rock') && buttonPicked.value === 'scissors') ||
                 (imgeAtrribute.includes('scissors') && buttonPicked.value === 'paper') ||
                 (imgeAtrribute.includes('paper') && buttonPicked.value === 'rock')) {
-                    createSweetAlert('Computer wins! ' + capitalizeFirstLetter(imageValue) + ' beats ' + buttonPicked.value, 'warning');
+                    createSweetAlert('Computer wins! ' + capitalizeFirstLetter(imageValue) + ' beats ' + capitalizeFirstLetter(buttonPicked.value), 'warning');
                 } else {
                     createSweetAlert('You win! ' + capitalizeFirstLetter(buttonPicked.value) + ' beats ' + capitalizeFirstLetter(imageValue), 'success');
                 }

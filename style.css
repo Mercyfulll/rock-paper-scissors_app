@@ -59,3 +59,20 @@ h2{
     width: 35%;
     background-color: whitesmoke;
 }
+.scores{
+    display: flex;
+}
+.player-score{
+    width: 50%;
+    background-color: aquamarine;
+    padding: 2px;
+}
+.computer-score{
+    width: 50%;
+    background-color: darkcyan;
+
+}
+.p-score, 
+.c-score{
+    padding-left: 10em;
+}
