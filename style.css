@@ -44,3 +44,9 @@ button{
     height: 20em;
     width: 30%;
 }
+.new-btn{
+    margin-left: auto;
+    margin-right: auto;
+    height: 20em;
+    width: 30%
+}
