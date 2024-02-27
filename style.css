@@ -39,7 +39,7 @@ h2{
     width: 90%;
     height: 90%;
 }
-button{
+.btn{
     margin: 2px;
     height: 20em;
     width: 30%;
@@ -49,4 +49,13 @@ button{
     margin-right: auto;
     height: 20em;
     width: 30%
+}
+.btn-custom{
+    width: 10%;
+    height: 25px;
+    padding: 5px;
+}
+.pop-messages{
+    width: 35%;
+    background-color: whitesmoke;
 }
