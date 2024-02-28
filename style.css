@@ -33,6 +33,8 @@ h2{
     display: flex;
     margin-left: auto;
     margin-right: auto;
+    justify-content: center;
+    align-items: center;
 }
 .icon,
 .icon-btn{
@@ -65,14 +67,18 @@ h2{
 .player-score{
     width: 50%;
     background-color: aquamarine;
-    padding: 2px;
+    text-align: center;
+
+
 }
 .computer-score{
     width: 50%;
     background-color: darkcyan;
+    text-align: center;
 
 }
 .p-score, 
 .c-score{
-    padding-left: 10em;
+    padding-left: 1em;
+  
 }

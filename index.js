@@ -2,15 +2,19 @@ const pickBtn = document.querySelectorAll(".btn");
 const choice = document.querySelector(".play");
 const computerChoice = document.querySelectorAll(".icon");
 const elementForPc = document.querySelector(".pc");
+const showPcScore = document.querySelector(".c-score");
+const showPlayerScore = document.querySelector(".p-score")
 
-var computerScore = 0 
-var playerScore = 0 
+var computerScore = 0;
+var playerScore = 0;
+
+showPcScore.innerHTML = computerScore
+showPlayerScore.innerHTML = playerScore
 
 pickBtn.forEach(function (buttonPicked) {
     buttonPicked.addEventListener('click', function () {
         var oldElement = choice;
         var newElement = buttonPicked;
-
 
         if (choice) {
             oldElement.parentNode.replaceChild(newElement, oldElement);
@@ -36,20 +40,18 @@ pickBtn.forEach(function (buttonPicked) {
             const value = fileName.split('.')[0].toLowerCase();
             return value;
         }
-       
+
         const imageValue = extractValueFromSource(newImage.src);
         var pcOldElem = elementForPc;
         var pcNewElem = newButton;
 
-        
-
         if (pcOldElem) {
             var newElem = pcOldElem.parentNode.replaceChild(pcNewElem, pcOldElem)
             newElem.classList.add('btn');
-            
         }
 
-        var imgeAtrribute = newImage.src
+        var imageAttribute = imageValue;
+        var buttonValue = buttonPicked.value;
 
         function createSweetAlert(title, icon) {
             Swal.fire({
@@ -61,24 +63,42 @@ pickBtn.forEach(function (buttonPicked) {
                     title: 'custom-title-class',
                     popup: 'pop-messages'
                 }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    if (title.includes('draw')) {
+                        // No score change for a draw
+                    } else if (title.includes('Computer wins')) {
+                        // computerScore++;
+                        // Update computer score DOM element here if needed
+                    } else {
+                        // playerScore++;
+                        // Update player score DOM element here if needed
+                    }
+                }
             });
         }
-        
-        if (imgeAtrribute.includes(buttonPicked.value)) {
+
+       
+        if (imageAttribute === buttonValue) {
             createSweetAlert('It\'s a draw', 'info');
         } else {
-            if ((imgeAtrribute.includes('rock') && buttonPicked.value === 'scissors') ||
-                (imgeAtrribute.includes('scissors') && buttonPicked.value === 'paper') ||
-                (imgeAtrribute.includes('paper') && buttonPicked.value === 'rock')) {
-                    createSweetAlert('Computer wins! ' + capitalizeFirstLetter(imageValue) + ' beats ' + capitalizeFirstLetter(buttonPicked.value), 'warning');
-                } else {
-                    createSweetAlert('You win! ' + capitalizeFirstLetter(buttonPicked.value) + ' beats ' + capitalizeFirstLetter(imageValue), 'success');
-                }
+            if ((imageAttribute === 'rock' && buttonValue === 'scissors') ||
+                (imageAttribute === 'scissors' && buttonValue === 'paper') ||
+                (imageAttribute === 'paper' && buttonValue === 'rock')) {
+                createSweetAlert('Computer wins! ' + capitalizeFirstLetter(imageAttribute) + ' beats ' + capitalizeFirstLetter(buttonValue), 'warning');
+                computerScore++ 
+                showPcScore.innerHTML = computerScore
+            } else {
+                createSweetAlert('You win! ' + capitalizeFirstLetter(buttonValue) + ' beats ' + capitalizeFirstLetter(imageAttribute), 'success');
+                playerScore++
+                showPlayerScore.innerHTML = playerScore
+                console.log(playerScore)
+                console.log(computerScore)
+            }
         }
-        
+
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
-        
-     });
+    });
 });
